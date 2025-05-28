@@ -3,27 +3,9 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ServiceCard from '@/components/ServiceCard';
 import HammerIcon from '@/components/icons/HammerIcon';
-import Carousel from '@/components/carousel/carousel';
+import Carousel from '@/components/banner/banner';
 import BrushIcon from '@/components/icons/BrushIcon';
 import MechanicalWheelIcon from '@/components/icons/MechanicalWheelIcon';
-
-const projectsData = [
-  {
-    id: 'proj1',
-    image: '/img/school.png',
-    title: 'Former William Byrd High School - Vinton, VA',
-  },
-  {
-    id: 'proj2',
-    image: '/img/church.png',
-    title: 'First Church of Christ Scientist - Paris, TX',
-  },
-  {
-    id: 'proj3',
-    image: '/img/officeBuilding.png',
-    title: 'The Blake & Hinkle Office Building',
-  },
-];
 
 const services = [
   {
@@ -42,31 +24,6 @@ const services = [
     description: 'Transforming historic structures for new purposes, blending old and new.',
   },
 ];
-
-function ProjectsSection() {
-  return (
-    <section className='w-full'>
-      <h2 className='text-primary-brand text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5'>
-        Featured Project
-      </h2>
-      <div className='flex overflow-y-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'>
-        <div className='flex items-stretch p-4 gap-3 w-full'>
-          {projectsData.map((project) => (
-            <div key={project.id} className='flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60'>
-              <div
-                className='w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex flex-col'
-                style={{ backgroundImage: `url("${project.image}")` }}
-              />
-              <p className='text-primary-brand text-base font-medium leading-normal'>
-                {project.title}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function ServicesSection() {
   return (
@@ -108,7 +65,6 @@ export default function HomePage() {
       <Carousel />
       <main className='layout-container flex h-full grow flex-col'>
         <div className='mx-auto w-full '>
-          <ProjectsSection />
           <ServicesSection />
           <CallToActionSection />
         </div>
