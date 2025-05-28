@@ -11,6 +11,7 @@
     "check-format": "prettier --check \"{pages,components,app,lib,utils,src}/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.7",
     "historic-builds": "file:",
     "next": "15.3.2",
     "react": "^19.0.0",
@@ -18,19 +19,24 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.10",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "postcss": "^8.5.3",
     "prettier": "^3.5.3",
+    "tailwindcss": "^4.1.7",
     "typescript": "^5"
   }
 }
