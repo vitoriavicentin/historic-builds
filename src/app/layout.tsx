@@ -18,9 +18,9 @@ const notoSans = Noto_Sans({
 
 export const metadata: Metadata = {
   title: 'Williamson County Investments Corporation',
-  description: 'Especialistas em restauração e revitalização de edifícios históricos.',
+  description: 'Specialists in the restoration and revitalization of historic buildings.',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/src/favicon.ico',
   },
 };
 
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang='en' className={`${manrope.variable} ${notoSans.variable}`}>
       <body>
-        <div className='relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden'>
+        <div className='relative flex size-full min-h-screen flex-col bg-[#e9e9e9] group/design-root '>
           {children}
         </div>
       </body>
