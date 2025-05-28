@@ -66,9 +66,6 @@ export default function Header() {
   return (
     <header className='flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-200 px-4 py-3 md:px-8 lg:px-12 bg-white shadow-sm sticky top-0 z-50'>
       <Link href='/' className='flex items-center gap-2 text-primary-brand'>
-        <div className='w-6 h-6 md:w-8 md:h-8'>
-          <link rel='icon' type='image/png' href='/favicon.ico' />
-        </div>
         <h1 className='text-base md:text-xl font-bold leading-tight tracking-[-0.015em]'>
           Williamson County Investments Corporation
         </h1>

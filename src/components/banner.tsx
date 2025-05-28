@@ -23,43 +23,32 @@ export default function Banner() {
 
   const handleClick = () => {
     setIsLoading(true);
-    // Simula um delay para a ação (em um app real, você usaria next/router para navegar)
     setTimeout(() => {
       setIsLoading(false);
-      // Exemplo de navegação (adicione 'import { useRouter } from 'next/navigation';' no topo e 'const router = useRouter();' dentro do componente)
-      // router.push('/projects');
+      window.location.hash = 'projects-section';
     }, 2000);
   };
 
   return (
     <section className='relative h-[450px] md:h-[550px] lg:h-[650px] flex items-center justify-center text-white overflow-hidden'>
-      {/* Imagem de fundo com Next/Image para otimização */}
       <Image
-        src='/img/bank.jpg' // Verifique o caminho real da sua imagem
-        alt='Historic Bank Building' // Alt text mais descritivo
+        src='/img/bank.jpg'
+        alt='Historic Bank Building'
         layout='fill'
         objectFit='cover'
-        quality={85} // Ligeiro aumento na qualidade para mais nitidez
+        quality={85}
         priority
         className='absolute inset-0 z-0'
       />
-
-      {/* Sobreposição escura para melhorar a legibilidade do texto */}
-      {/* Aumentado a opacidade para 50% para melhor contraste */}
       <div className='absolute inset-0 bg-black opacity-50 z-10'></div>
-
-      {/* Conteúdo do Banner (título e botão) */}
       <div className='relative z-20 text-center px-4 max-w-4xl mx-auto'>
         <h1 className='text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white drop-shadow-md md:drop-shadow-lg'>
           Transforming Properties, Preserving Legacies.
         </h1>
-        {/* Usando text-gray-100 para um branco "sujo" que pode ter mais contraste */}
         <p className='text-base md:text-lg lg:text-xl mb-10 text-gray-100 drop-shadow'>
           Discover our latest restoration and renovation projects, transforming your vision into
           reality.
         </p>
-
-        {/* Botão Call to Action */}
         <button
           onClick={handleClick}
           disabled={isLoading}

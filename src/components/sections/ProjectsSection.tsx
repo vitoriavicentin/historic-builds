@@ -42,17 +42,13 @@ export default function ProjectsSection() {
 
   return (
     <section id='projects-section' className='py-10 md:py-16 bg-gray-50'>
-      {' '}
       <div className='layout-content-container flex flex-col w-full max-w-[1200px] mx-auto gap-12 px-4'>
-        {' '}
         <div className='flex flex-wrap justify-between gap-3'>
-          {' '}
           <div className='flex min-w-72 flex-col gap-3'>
             <p className='tracking-tight text-5xl font-extrabold leading-tight text-primary-brand'>
               Our Projects
             </p>
             <p className='text-lg font-normal leading-normal pb-3 pt-1 max-w-2xl text-gray-700'>
-              {' '}
               Explore our portfolio of successful revitalization projects, showcasing our commitment
               to preserving history and enhancing communities with innovative design and sustainable
               practices.
@@ -87,7 +83,7 @@ export default function ProjectsSection() {
                 <p>{project.description}</p>
               </div>
 
-              <div className='flex-grow md:w-1/2'>
+              <div className='w-full md:w-1/2 flex-shrink-0'>
                 <ImageCompareSlider
                   beforeSrc={project.beforeImage}
                   afterSrc={project.afterImage}
