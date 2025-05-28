@@ -1,6 +1,6 @@
 // app/hooks/useAnimateOnScroll.ts
 import { useEffect, useRef, useState } from 'react';
-import { useAnimation, type AnimationControls } from 'framer-motion';
+import { useAnimation } from 'framer-motion';
 
 interface UseAnimateOnScrollOptions {
   threshold?: number; // 0.0 - 1.0, quão visível o elemento precisa estar para disparar
