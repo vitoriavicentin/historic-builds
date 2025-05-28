@@ -16,9 +16,15 @@ const StatusMessage: React.FC<StatusMessageProps> = ({ status, message }) => {
   }
 
   const isSuccess = status === 'success';
-  const icon = isSuccess ? <CheckCircleOutlineIcon sx={{ fontSize: 20 }} /> : <CancelOutlinedIcon sx={{ fontSize: 20 }} />;
+  const icon = isSuccess ? (
+    <CheckCircleOutlineIcon sx={{ fontSize: 20 }} />
+  ) : (
+    <CancelOutlinedIcon sx={{ fontSize: 20 }} />
+  );
   const textColor = isSuccess ? 'text-green-600' : 'text-red-600';
-  const defaultMessage = isSuccess ? 'Message sent successfully!' : (message || 'An error occurred. Please try again.');
+  const defaultMessage = isSuccess
+    ? 'Message sent successfully!'
+    : message || 'An error occurred. Please try again.';
 
   return (
     <AnimatePresence>
@@ -28,7 +34,7 @@ const StatusMessage: React.FC<StatusMessageProps> = ({ status, message }) => {
         exit={{ opacity: 0, y: -10 }}
         className={`${textColor} mt-4 text-center text-base flex items-center justify-center`}
       >
-        <span className="inline-block mr-1 align-text-bottom">{icon}</span>
+        <span className='inline-block mr-1 align-text-bottom'>{icon}</span>
         {defaultMessage}
       </motion.p>
     </AnimatePresence>
