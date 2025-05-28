@@ -9,7 +9,7 @@ function Footer() {
           &copy; {currentYear} Williamson County Investments Corporation. All rights reserved.
         </p>
         <p className='text-xs text-gray-400'>
-          Developer by <span className='font-semibold'>Vitória Vicentin</span>
+          Developer by <span className='font-semibold'>VCM</span>
         </p>
       </div>
     </footer>
