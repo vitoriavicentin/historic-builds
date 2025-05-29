@@ -1,58 +1,48 @@
-// app/page.tsx (ou pages/index.tsx)
-'use client'; // Se ainda não estiver
+'use client';
 
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import AboutUsSection from '@/components/sections/AboutUsSection';
-import ProjectsSection from '@/components/sections/ProjectsSection';
-import AnimateOnScroll from '@/components/AnimateOnScroll';
+import React, { Suspense } from 'react';
+
 import Banner from '@/components/banner';
-import ContactSection from '@/components/sections/Contact';
-import React from 'react';
 import CallToActionSection from '@/components/sections/CallToActionSection';
 import ServicesSection from '@/components/sections/ServicesSection';
+import AboutUsSection from '@/components/sections/AboutUsSection';
+import ContactSection from '@/components/sections/Contact';
+
+const LazyProjectsSection = React.lazy(() => import('@/components/sections/ProjectsSection'));
 
 export default function HomePage() {
-  const bannerVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 1, ease: 'easeOut' } },
-  };
-
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 80 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut', delay: 0.2 } },
-  };
-
   const sections = [
     {
       key: 'banner',
       component: <Banner />,
-      variants: bannerVariants,
+      isLazy: false,
     },
     {
       key: 'services',
       component: <ServicesSection />,
-      variants: sectionVariants,
+      isLazy: false,
     },
     {
       key: 'cta',
       component: <CallToActionSection />,
-      variants: bannerVariants,
+      isLazy: false,
     },
     {
       key: 'about',
       component: <AboutUsSection />,
-      variants: sectionVariants,
+      isLazy: false,
     },
     {
       key: 'projects',
-      component: <ProjectsSection />,
-      variants: sectionVariants,
+      component: <LazyProjectsSection />,
+      isLazy: true,
     },
     {
       key: 'contact',
       component: <ContactSection />,
-      variants: sectionVariants,
+      isLazy: false,
     },
   ];
 
@@ -61,11 +51,13 @@ export default function HomePage() {
       <Header />
       <main className='layout-container flex h-full grow flex-col'>
         <div className='mx-auto w-full'>
-          {sections.map(({ key, component, variants }, idx, arr) => (
+          {sections.map(({ key, component, isLazy }, idx, arr) => (
             <React.Fragment key={key}>
-              <AnimateOnScroll variants={variants} threshold={0.2} once={true}>
-                {component}
-              </AnimateOnScroll>
+              {isLazy ? (
+                <Suspense fallback={<div>Carregando projetos...</div>}>{component}</Suspense>
+              ) : (
+                component
+              )}
               {idx < arr.length - 1 && (
                 <div className='border-t border-gray-200 my-2 md:my-3 max-w-4xl mx-auto'></div>
               )}
