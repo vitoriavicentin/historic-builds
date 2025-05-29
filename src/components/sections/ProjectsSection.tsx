@@ -1,7 +1,7 @@
 'use client';
+
 import React from 'react';
-import ImageCompareSlider from '@/components/ImageCompareSlider';
-import { motion } from 'framer-motion';
+import ReactCompareImage from 'react-compare-image';
 
 interface Project {
   title: string;
@@ -35,11 +35,6 @@ export default function ProjectsSection() {
     },
   ];
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-  };
-
   return (
     <section id='projects-section' className='py-10 md:py-16 bg-[#f5f5f5]'>
       <div className='layout-content-container flex flex-col w-full max-w-[1200px] mx-auto gap-12 px-4'>
@@ -55,43 +50,34 @@ export default function ProjectsSection() {
             </p>
           </div>
         </div>
-        {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            className='w-full'
-            variants={cardVariants}
-            initial='hidden'
-            whileInView='visible'
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <motion.div
-              className={`flex items-center justify-between gap-8 rounded-2xl shadow-xl bg-white p-8 md:p-10 border border-gray-100
-            ${
-              index % 2 === 0
-                ? 'flex-col-reverse md:flex-row'
-                : 'flex-col-reverse md:flex-row-reverse'
-            }`}
-              whileHover={{
-                scale: 1.02,
-                boxShadow:
-                  '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className='flex flex-col gap-4 flex-grow md:w-1/2'>
-                <h2 className='text-4xl font-extrabold'>{project.title}</h2>
-                <p>{project.description}</p>
-              </div>
 
-              <div className='w-full md:w-1/2 flex-shrink-0'>
-                <ImageCompareSlider
-                  beforeSrc={project.beforeImage}
-                  afterSrc={project.afterImage}
-                  alt={project.title}
-                />
-              </div>
-            </motion.div>
-          </motion.div>
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className={`w-full rounded-2xl shadow-xl bg-white p-8 md:p-10 border border-gray-100
+              ${
+                index % 2 === 0
+                  ? 'flex flex-col-reverse md:flex-row'
+                  : 'flex flex-col-reverse md:flex-row-reverse'
+              }
+              items-center justify-between gap-8
+              transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg
+            `}
+          >
+            <div className='flex flex-col gap-4 flex-grow md:w-1/2'>
+              <h2 className='text-4xl font-extrabold'>{project.title}</h2>
+              <p>{project.description}</p>
+            </div>
+            <div className='w-full md:w-1/2 flex-shrink-0 max-w-[600px] max-h-[400px]'>
+              <ReactCompareImage
+                leftImage={project.beforeImage}
+                rightImage={project.afterImage}
+                leftImageLabel='Before'
+                rightImageLabel='After'
+                hover={true}
+              />
+            </div>
+          </div>
         ))}
       </div>
     </section>
