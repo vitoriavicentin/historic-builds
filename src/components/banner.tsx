@@ -19,14 +19,18 @@ function ArrowRightIcon() {
 }
 
 export default function Banner() {
-  const [isLoading, setIsLoading] = useState(false);
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const headerOffset = document.querySelector('header')?.offsetHeight || 0;
+      const elementPosition = section.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerOffset;
 
-  const handleClick = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      window.location.hash = 'projects-section';
-    }, 2000);
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (
@@ -50,27 +54,14 @@ export default function Banner() {
           reality.
         </p>
         <button
-          onClick={handleClick}
-          disabled={isLoading}
-          className={`${
-            isLoading ? 'cursor-not-allowed opacity-75' : 'hover:bg-[#53d22c] hover:scale-105'
-          } bg-green-600 text-[#131712] font-semibold py-3 px-8 md:px-12 rounded-full shadow-xl transition-all duration-300 flex items-center justify-center mx-auto text-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75`}
+          onClick={() => scrollToSection('projects-section')}
+          className={`${'hover:bg-[#53d22c] hover:scale-105 cursor-pointer'} bg-green-600 text-[#131712] font-semibold py-3 px-8 md:px-12 rounded-full shadow-xl transition-all duration-300 flex items-center justify-center mx-auto text-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75`}
         >
-          {isLoading ? (
-            <>
-              <span className='w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2'></span>
-              Loading...
-            </>
-          ) : (
-            <>
-              View Projects
-              <ArrowRightIcon />
-            </>
-          )}
+          View Projects
+          <ArrowRightIcon />
         </button>
       </div>
 
-      {/* Estilos de Animação (mantidos apenas o 'spin') */}
       <style jsx>{`
         @keyframes spin {
           to {
