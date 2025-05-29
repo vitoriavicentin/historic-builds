@@ -41,7 +41,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id='projects-section' className='py-10 md:py-16 bg-gray-50'>
+    <section id='projects-section' className='py-10 md:py-16 bg-[#f5f5f5]'>
       <div className='layout-content-container flex flex-col w-full max-w-[1200px] mx-auto gap-12 px-4'>
         <div className='flex flex-wrap justify-between gap-3'>
           <div className='flex min-w-72 flex-col gap-3'>

@@ -98,7 +98,6 @@ const ImageCompareSlider: React.FC<ImageCompareSliderProps> = ({ beforeSrc, afte
         ></div>
       </div>
 
-      {/* Slider Handle */}
       <div
         className='absolute top-0 h-full w-1 bg-white cursor-ew-resize z-10'
         style={{ left: `calc(${sliderPosition}% - 2px)` }}

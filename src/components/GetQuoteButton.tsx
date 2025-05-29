@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import Modal from './Modal'; // Importe o componente Modal
-import ContactForm from './ContactForm'; // Importe o ContactForm
+import Modal from './Modal';
+import ContactForm from './ContactForm';
 
 export default function GetQuoteButton() {
   const [isModalOpen, setIsModalOpen] = useState(false);

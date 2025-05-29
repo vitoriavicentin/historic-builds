@@ -1,17 +1,16 @@
-// components/AnimateOnScroll.tsx
 'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useAnimateOnScroll } from '@/app/hooks/useAnimateOnScroll'; // Ajuste o caminho
+import { useAnimateOnScroll } from '@/app/hooks/useAnimateOnScroll';
 
 interface AnimateOnScrollProps {
   children: React.ReactNode;
-  variants?: any; // Variações de animação do Framer Motion
+  variants?: any;
   threshold?: number;
   rootMargin?: string;
   once?: boolean;
-  className?: string; // Para passar classes Tailwind para o div wrapper
+  className?: string;
 }
 
 const defaultVariants = {
@@ -35,7 +34,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
       initial='hidden'
       animate={controls}
       variants={variants}
-      className={className} // Aplica classes passadas
+      className={className}
     >
       {children}
     </motion.div>

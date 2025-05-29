@@ -7,14 +7,14 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 interface FormInputProps {
   label: string;
   name: string;
-  type?: React.HTMLInputTypeAttribute; // Permite 'text', 'email', 'tel', etc.
+  type?: React.HTMLInputTypeAttribute;
   placeholder: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   required?: boolean;
   isFilled: boolean;
   isTextArea?: boolean;
-  rows?: number; // Apenas para textarea
+  rows?: number;
 }
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -54,6 +54,7 @@ const FormInput: React.FC<FormInputProps> = ({
             placeholder={placeholder}
             required={required}
             className={inputClasses}
+            maxLength={500}
           ></textarea>
         ) : (
           <input

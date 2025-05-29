@@ -1,6 +1,4 @@
-// components/sections/AboutUsSection.jsx
-'use client'; // Se você for usar efeitos ou estados dentro desta seção no futuro
-
+'use client';
 import React, { useRef, useEffect, useState } from 'react';
 import {
   Construction as ConstructionIcon,
@@ -20,13 +18,13 @@ export default function AboutUsSection() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Opcional: para animar apenas uma vez
+          observer.disconnect();
         }
       },
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1, // Animar quando 10% da seção estiver visível
+        threshold: 0.1,
       },
     );
 
@@ -41,11 +39,44 @@ export default function AboutUsSection() {
     };
   }, []);
 
+  const values = [
+    {
+      title: 'Respect for History',
+      description:
+        'We cherish every detail of the past, believing that each historic building holds a vital piece of our nation’s identity.',
+      icon: <LocalLibraryIcon color='inherit' fontSize='large' />,
+    },
+    {
+      title: 'Commitment to Excellence',
+      description:
+        'We uphold the highest standards in every project — from planning to the final restoration — ensuring lasting and authentic results.',
+      icon: <MilitaryTechIcon color='inherit' fontSize='large' />,
+    },
+    {
+      title: 'Boldness to Transform',
+      description:
+        'We take on the toughest challenges — structures in ruins and on the verge of collapse — and turn them into living works of art.',
+      icon: <ConstructionIcon color='inherit' fontSize='large' />,
+    },
+    {
+      title: 'Legacy for the Future',
+      description:
+        'Our work is not just for today. We restore with purpose, preserving memories and building bridges between generations.',
+      icon: <CompostIcon color='inherit' fontSize='large' />,
+    },
+    {
+      title: 'Passion for What We Do',
+      description:
+        'We believe in the power of history. Every brick we restore is a tribute to time and a labor of love for our cultural heritage.',
+      icon: <FavoriteIcon color='inherit' fontSize='large' />,
+    },
+  ];
+
   return (
     <section
       id='about-us-section'
       ref={sectionRef}
-      className={`py-10 md:py-16 bg-white transition-all duration-1000 ease-out ${
+      className={`py-10 md:py-16 bg-[#f5f5f5] transition-all duration-1000 ease-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
@@ -79,31 +110,14 @@ export default function AboutUsSection() {
           Our Values
         </h2>
         <div className='grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4'>
-          <ValueCard
-            title='Respect for History'
-            description='We cherish every detail of the past, believing that each historic building holds a vital piece of our nation’s identity.'
-            icon={<LocalLibraryIcon color='inherit' fontSize='large' />}
-          />
-          <ValueCard
-            title='Commitment to Excellence'
-            description='We uphold the highest standards in every project — from planning to the final restoration — ensuring lasting and authentic results.'
-            icon={<MilitaryTechIcon color='inherit' fontSize='large' />}
-          />
-          <ValueCard
-            title='Boldness to Transform'
-            description='We take on the toughest challenges — structures in ruins and on the verge of collapse — and turn them into living works of art.'
-            icon={<ConstructionIcon color='inherit' fontSize='large' />}
-          />
-          <ValueCard
-            title='Legacy for the Future'
-            description='Our work is not just for today. We restore with purpose, preserving memories and building bridges between generations.'
-            icon={<CompostIcon color='inherit' fontSize='large' />}
-          />
-          <ValueCard
-            title='Passion for What We Do'
-            description='We believe in the power of history. Every brick we restore is a tribute to time and a labor of love for our cultural heritage.'
-            icon={<FavoriteIcon color='inherit' fontSize='large' />}
-          />
+          {values.map((value) => (
+            <ValueCard
+              key={value.title}
+              title={value.title}
+              description={value.description}
+              icon={value.icon}
+            />
+          ))}
         </div>
       </div>
     </section>

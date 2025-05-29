@@ -1,4 +1,3 @@
-// components/ContactForm.tsx
 'use client';
 
 import React from 'react';
@@ -7,9 +6,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SendIcon from '@mui/icons-material/Send';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import FormInput from './FormInput'; // Certifique-se que o caminho está correto
-import StatusMessage from './StatusMessage'; // Certifique-se que o caminho está correto
-import { useContactForm } from '@/app/hooks/useContactForm'; // Certifique-se que o caminho está correto
+import FormInput from './FormInput';
+import StatusMessage from './StatusMessage';
+import { useContactForm } from '@/app/hooks/useContactForm';
 
 const ContactForm: React.FC = () => {
   const { formData, status, errorMessage, isFormValid, handleChange, handleSubmit, isFieldFilled } =

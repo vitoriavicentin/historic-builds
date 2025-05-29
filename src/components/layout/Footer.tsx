@@ -9,7 +9,15 @@ function Footer() {
           &copy; {currentYear} Williamson County Investments Corporation. All rights reserved.
         </p>
         <p className='text-xs text-gray-400'>
-          Developer by <span className='font-semibold'>VCM</span>
+          Developer by{' '}
+          <a
+            href='https://www.linkedin.com/in/vitoriavicentin/'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='font-semibold cursor-pointer underline'
+          >
+            Vitoria Vicentin
+          </a>
         </p>
       </div>
     </footer>

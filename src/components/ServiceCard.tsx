@@ -1,8 +1,7 @@
-// src/components/ServiceCard.tsx
 import React from 'react';
 
 interface ServiceCardProps {
-  icon: React.ReactNode; // Para passar o componente SVG como prop
+  icon: React.ReactNode;
   title: string;
   description: string;
 }
