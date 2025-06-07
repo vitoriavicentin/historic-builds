@@ -16,7 +16,7 @@ function Footer() {
             rel='noopener noreferrer'
             className='font-semibold cursor-pointer underline'
           >
-            Vitoria Vicentin
+            V
           </a>
         </p>
       </div>
